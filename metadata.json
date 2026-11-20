@@ -1,0 +1,8 @@
+{
+  "name": "VANTERA Group",
+  "description": "VANTERA Group corporate showcase application featuring Real Estate, Construction, and General Trading in Erbil, Kurdistan Region of Iraq (fictional portfolio demonstration).",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
