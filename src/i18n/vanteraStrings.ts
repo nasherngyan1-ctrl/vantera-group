@@ -1,0 +1,821 @@
+import {
+  AppLanguage,
+  DivisionItem,
+  LanguageOption,
+  ProjectConcept,
+  ServiceInterest,
+  WhyChoosePillar,
+} from '../types/vantera';
+
+export const LANGUAGE_OPTIONS: LanguageOption[] = [
+  { code: 'en', nativeLabel: 'English', shortCode: 'EN', isRtl: false },
+  { code: 'ku', nativeLabel: 'کوردی', shortCode: 'کوردی', isRtl: true },
+  { code: 'ar', nativeLabel: 'العربية', shortCode: 'عربي', isRtl: true },
+];
+
+export const assetUrl = (relativePath: string): string => {
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = relativePath.startsWith('/') ? relativePath.slice(1) : relativePath;
+  return `${normalizedBase}${normalizedPath}`;
+};
+
+export interface VanteraCopy {
+  pageTitle: string;
+  brandWordmark: string;
+  brandSubword: string;
+  navHome: string;
+  navAbout: string;
+  navServices: string;
+  navProjects: string;
+  navContact: string;
+  contactUsCta: string;
+  closeMenuLabel: string;
+  openMenuLabel: string;
+  languageSelectorLabel: string;
+
+  heroEyebrow: string;
+  heroHeadline: string;
+  heroSubtitle: string;
+  heroPrimaryCta: string;
+  heroSecondaryCta: string;
+  heroDemoChip: string;
+  heroImageAlt: string;
+
+  aboutEyebrow: string;
+  aboutHeadline: string;
+  aboutParagraph1: string;
+  aboutParagraph2: string;
+  aboutLocationBadge: string;
+  aboutImageCaption: string;
+
+  divisionsEyebrow: string;
+  divisionsHeadline: string;
+  divisionsSubtitle: string;
+  divisionExploreLabel: string;
+  divisionFocusTitle: string;
+  divisionInquireCta: string;
+  divisions: DivisionItem[];
+
+  projectsEyebrow: string;
+  projectsHeadline: string;
+  projectsSubtitle: string;
+  projectsDisclaimerBanner: string;
+  projectsInspectLabel: string;
+  projectConceptBadge: string;
+  projectNotesLabel: string;
+  projects: ProjectConcept[];
+
+  whyEyebrow: string;
+  whyHeadline: string;
+  whySubtitle: string;
+  whyPillars: WhyChoosePillar[];
+
+  expertiseEyebrow: string;
+  expertiseHeadline: string;
+  expertiseBody: string;
+  expertiseCaptionEngineering: string;
+  expertiseCaptionOffice: string;
+
+  partnershipsEyebrow: string;
+  partnershipsHeadline: string;
+  partnershipsBody: string;
+  partnershipsCta: string;
+
+  contactEyebrow: string;
+  contactHeadline: string;
+  contactSubtitle: string;
+  contactLocationTitle: string;
+  contactLocationValue: string;
+  contactEmailTitle: string;
+  contactEmailValue: string;
+  contactEmailDemoNote: string;
+  contactDemoNotice: string;
+  fieldFullName: string;
+  fieldEmail: string;
+  fieldPhone: string;
+  fieldCompany: string;
+  fieldCompanyOptional: string;
+  fieldServiceInterest: string;
+  fieldMessage: string;
+  submitInquiryCta: string;
+  errorFullNameRequired: string;
+  errorEmailRequired: string;
+  errorEmailInvalid: string;
+  errorPhoneRequired: string;
+  errorPhoneInvalid: string;
+  errorMessageRequired: string;
+  successTitle: string;
+  successDemoExplanation: string;
+  successSummaryLabel: string;
+  successResetCta: string;
+  serviceOptions: Record<ServiceInterest, string>;
+
+  footerTagline: string;
+  footerNavHeading: string;
+  footerDivisionsHeading: string;
+  footerContactHeading: string;
+  footerCopyright: string;
+  footerDemoDisclosure: string;
+}
+
+const englishCopy: VanteraCopy = {
+  pageTitle: 'VANTERA Group — Real Estate, Construction & General Trading',
+  brandWordmark: 'VANTERA',
+  brandSubword: 'GROUP',
+  navHome: 'Home',
+  navAbout: 'About',
+  navServices: 'Our Services',
+  navProjects: 'Projects',
+  navContact: 'Contact',
+  contactUsCta: 'Contact Us',
+  closeMenuLabel: 'Close navigation menu',
+  openMenuLabel: 'Open navigation menu',
+  languageSelectorLabel: 'Language',
+
+  heroEyebrow: 'ERBIL • KURDISTAN REGION, IRAQ',
+  heroHeadline: 'Building Opportunities. Creating Tomorrow.',
+  heroSubtitle:
+    'VANTERA Group brings together real estate, construction and international trade to create lasting business value.',
+  heroPrimaryCta: 'Explore Our Business',
+  heroSecondaryCta: 'Contact Our Team',
+  heroDemoChip: 'Conceptual Corporate Showcase',
+  heroImageAlt: 'VANTERA Group architectural corporate headquarters entrance',
+
+  aboutEyebrow: 'ABOUT VANTERA GROUP',
+  aboutHeadline: 'A Vision Beyond Business.',
+  aboutParagraph1:
+    'VANTERA Group is a fictional demonstration company created to illustrate an international multi-sector business group anchored in Erbil, Kurdistan Region of Iraq. Our organizational model unites Real Estate, Construction, and General Trading under disciplined executive governance.',
+  aboutParagraph2:
+    'Every initiative is guided by an unwavering commitment to architectural and operational quality, transparent long-term relationships, and responsible regional growth that creates enduring value for communities and partners.',
+  aboutLocationBadge: 'Headquartered in Erbil, Kurdistan Region, Iraq',
+  aboutImageCaption: 'Urban perspective — conceptual corporate overview',
+
+  divisionsEyebrow: 'OUR BUSINESS DIVISIONS',
+  divisionsHeadline: 'Three Integrated Pillars of Enterprise.',
+  divisionsSubtitle: 'Select a division to inspect operational capabilities and focus areas.',
+  divisionExploreLabel: 'View Division Scope',
+  divisionFocusTitle: 'Core Operational Focus',
+  divisionInquireCta: 'Inquire About This Division',
+  divisions: [
+    {
+      id: 'real_estate',
+      numberLabel: '01',
+      title: 'VANTERA Real Estate',
+      subtitle: 'Property & Luxury Living',
+      description:
+        'Property development, luxury residential projects and curated real estate opportunities designed for enduring architectural appeal.',
+      focusAreas: [
+        'Master-planned luxury villa and residential enclaves',
+        'Commercial and mixed-use property positioning',
+        'Architectural curation and asset stewardship',
+      ],
+      serviceInterest: 'real_estate',
+      imagePath: 'assets/images/img_luxury_villa.jpg',
+    },
+    {
+      id: 'construction',
+      numberLabel: '02',
+      title: 'VANTERA Construction',
+      subtitle: 'Engineering & Execution',
+      description:
+        'Construction management, structural engineering and modern development projects delivered with rigorous technical oversight.',
+      focusAreas: [
+        'End-to-end structural engineering and site supervision',
+        'Quality assurance, safety compliance, and scheduling',
+        'Modern commercial and residential build delivery',
+      ],
+      serviceInterest: 'construction',
+      imagePath: 'assets/images/img_construction_project.jpg',
+    },
+    {
+      id: 'general_trading',
+      numberLabel: '03',
+      title: 'VANTERA General Trading',
+      subtitle: 'Global Sourcing & Logistics',
+      description:
+        'International sourcing, commercial trading and cross-border logistics coordination connecting trusted suppliers with regional demand.',
+      focusAreas: [
+        'International procurement and vendor qualification',
+        'Maritime, overland, and customs logistics coordination',
+        'Industrial materials and commercial supply distribution',
+      ],
+      serviceInterest: 'general_trading',
+      imagePath: 'assets/images/img_shipping_port.jpg',
+    },
+  ],
+
+  projectsEyebrow: 'FEATURED PROJECTS',
+  projectsHeadline: 'Architectural & Development Concepts.',
+  projectsSubtitle:
+    'Conceptual gallery showcasing design language across residential, structural, and interior disciplines.',
+  projectsDisclaimerBanner:
+    'Conceptual Demonstration Notice: The projects shown below are illustrative design concepts, not verified completed client projects.',
+  projectsInspectLabel: 'Inspect Concept',
+  projectConceptBadge: 'CONCEPTUAL DEMONSTRATION',
+  projectNotesLabel: 'Concept Direction',
+  projects: [
+    {
+      id: 'villa_collection',
+      code: 'CONCEPT 01',
+      title: 'Luxury Villa Collection',
+      divisionLabel: 'VANTERA Real Estate',
+      conceptTag: 'Conceptual Demonstration',
+      summary:
+        'Low-density private residences pairing natural limestone masonry, cantilevered timber eaves, and serene courtyard water features.',
+      architecturalNotes:
+        'Demonstrates residential spatial planning, indoor-outdoor shading, and high-craft facade materiality.',
+      imagePath: 'assets/images/img_luxury_villa.jpg',
+    },
+    {
+      id: 'residential_development',
+      code: 'CONCEPT 02',
+      title: 'Residential Development',
+      divisionLabel: 'VANTERA Real Estate',
+      conceptTag: 'Conceptual Demonstration',
+      summary:
+        'Mid-rise urban residences organized around landscaped pedestrian walkways, warm stone cladding, and deep private balconies.',
+      architecturalNotes:
+        'Demonstrates community-oriented courtyard urbanism balanced with quiet acoustic and visual privacy.',
+      imagePath: 'assets/images/img_residential_development.jpg',
+    },
+    {
+      id: 'modern_construction',
+      code: 'CONCEPT 03',
+      title: 'Modern Construction Project',
+      divisionLabel: 'VANTERA Construction',
+      conceptTag: 'Conceptual Demonstration',
+      summary:
+        'Multi-level reinforced concrete commercial structure managed with coordinated crane logistics and phased MEP integration.',
+      architecturalNotes:
+        'Demonstrates disciplined site engineering, structural framing precision, and field team coordination.',
+      imagePath: 'assets/images/img_construction_project.jpg',
+    },
+    {
+      id: 'executive_interior',
+      code: 'CONCEPT 04',
+      title: 'Executive Interior Design',
+      divisionLabel: 'VANTERA Real Estate',
+      conceptTag: 'Conceptual Demonstration',
+      summary:
+        'Double-height living and reception volume finished in honed travertine, warm oak paneling, and tailored architectural lighting.',
+      architecturalNotes:
+        'Demonstrates cohesive material palettes uniting stone, timber, and understated contemporary furnishings.',
+      imagePath: 'assets/images/img_luxury_interior.jpg',
+    },
+  ],
+
+  whyEyebrow: 'WHY CHOOSE VANTERA',
+  whyHeadline: 'Principled Execution Across Every Discipline.',
+  whySubtitle:
+    'Our corporate framework aligns specialized capabilities around clarity, accountability, and shared long-term value.',
+  whyPillars: [
+    {
+      indexLabel: '01',
+      title: 'Professional Excellence',
+      description:
+        'Disciplined methodologies, transparent documentation, and uncompromising standards across design, engineering, and commerce.',
+    },
+    {
+      indexLabel: '02',
+      title: 'Integrated Business Divisions',
+      description:
+        'Seamless coordination between property vision, construction execution, and international material sourcing.',
+    },
+    {
+      indexLabel: '03',
+      title: 'Strategic Partnerships',
+      description:
+        'Cultivating dependable alliances with international manufacturers, architectural consultants, and regional stakeholders.',
+    },
+    {
+      indexLabel: '04',
+      title: 'Long-Term Vision',
+      description:
+        'Prioritizing durable infrastructure, responsible urban stewardship, and sustainable commercial relationships.',
+    },
+  ],
+
+  expertiseEyebrow: 'EXPERTISE & TEAM',
+  expertiseHeadline: 'Multidisciplinary Leadership, Grounded in Execution.',
+  expertiseBody:
+    'From architectural plan review and structural engineering tables to executive strategy rooms, our conceptual organization emphasizes cross-functional collaboration and attention to detail at every stage.',
+  expertiseCaptionEngineering: 'Engineering & Architectural Review',
+  expertiseCaptionOffice: 'Executive Corporate Environment',
+
+  partnershipsEyebrow: 'STRATEGIC ALLIANCES',
+  partnershipsHeadline: 'Stronger Together. Building Lasting Partnerships.',
+  partnershipsBody:
+    'We believe enduring enterprise is built on mutual trust, aligned governance, and shared standards. VANTERA Group engages partners across development, engineering, and international trade to unlock resilient regional opportunities.',
+  partnershipsCta: 'Discuss a Partnership',
+
+  contactEyebrow: 'CONTACT US',
+  contactHeadline: 'Connect With Our Team.',
+  contactSubtitle:
+    'Share your inquiry regarding real estate, construction, general trading, or strategic collaboration.',
+  contactLocationTitle: 'Regional Office',
+  contactLocationValue: 'Erbil, Kurdistan Region, Iraq',
+  contactEmailTitle: 'Corporate Inquiries (Demo)',
+  contactEmailValue: 'info@vanteragroup.example',
+  contactEmailDemoNote: 'Fictional demonstration email address — not monitored.',
+  contactDemoNotice:
+    'Interactive Demo Form: Validation and submission run locally in your browser. No messages are transmitted to an external server.',
+  fieldFullName: 'Full Name',
+  fieldEmail: 'Email Address',
+  fieldPhone: 'Phone Number',
+  fieldCompany: 'Company Name',
+  fieldCompanyOptional: 'Optional',
+  fieldServiceInterest: 'Service of Interest',
+  fieldMessage: 'Message',
+  submitInquiryCta: 'Submit Demo Inquiry',
+  errorFullNameRequired: 'Please enter your full name (at least 2 characters).',
+  errorEmailRequired: 'Please enter your email address.',
+  errorEmailInvalid: 'Please enter a valid email address.',
+  errorPhoneRequired: 'Please enter a phone number.',
+  errorPhoneInvalid: 'Please enter a valid phone number (at least 7 digits).',
+  errorMessageRequired: 'Please enter a message (at least 10 characters).',
+  successTitle: 'Demo Inquiry Recorded Locally',
+  successDemoExplanation:
+    'This is a simulated demonstration confirmation. Because VANTERA Group is a fictional showcase without a live backend, no email or network request was sent.',
+  successSummaryLabel: 'Inquiry Summary',
+  successResetCta: 'Submit Another Inquiry',
+  serviceOptions: {
+    real_estate: 'VANTERA Real Estate',
+    construction: 'VANTERA Construction',
+    general_trading: 'VANTERA General Trading',
+    partnership: 'Strategic Partnerships',
+    general_inquiry: 'General Corporate Inquiry',
+  },
+
+  footerTagline: 'Real Estate • Construction • General Trading',
+  footerNavHeading: 'Navigation',
+  footerDivisionsHeading: 'Business Divisions',
+  footerContactHeading: 'Location & Demo Contact',
+  footerCopyright: '© 2026 VANTERA Group. All rights reserved.',
+  footerDemoDisclosure:
+    'Fictional Portfolio Disclosure: VANTERA Group is a fictional corporate concept created by BASLUNE to demonstrate multilingual digital design and engineering. Projects, contact details, and corporate entities shown are illustrative demonstrations and are not presented as real.',
+};
+
+const kurdishCopy: VanteraCopy = {
+  pageTitle: 'گرووپی ڤانتێرا (VANTERA Group) — خانووبەرە، بیناسازی و بازرگانی گشتی',
+  brandWordmark: 'VANTERA',
+  brandSubword: 'GROUP',
+  navHome: 'سەرەکی',
+  navAbout: 'دەربارە',
+  navServices: 'خزمەتگوزارییەکان',
+  navProjects: 'پڕۆژەکان',
+  navContact: 'پەیوەندی',
+  contactUsCta: 'پەیوەندیمان پێوە بکە',
+  closeMenuLabel: 'داخستنی لیستی ڕێنیشاندەر',
+  openMenuLabel: 'کردنەوەی لیستی ڕێنیشاندەر',
+  languageSelectorLabel: 'زمان',
+
+  heroEyebrow: 'هەولێر • هەرێمی کوردستان، عێراق',
+  heroHeadline: 'دەرفەتەکان بونیاد دەنێین. سبەینێ دەخولقێنین.',
+  heroSubtitle:
+    'گرووپی ڤانتێرا خانووبەرە، بیناسازی و بازرگانی نێودەوڵەتی کۆدەکاتەوە بۆ بەرهەمهێنانی بەهای بەردەوامی بازرگانی.',
+  heroPrimaryCta: 'کارەکانمان بناسە',
+  heroSecondaryCta: 'پەیوەندی بە تیمەکەمان',
+  heroDemoChip: 'نمایشی نموونەیی کۆمپانیا',
+  heroImageAlt: 'دەروازەی بارەگای سەرەکی گرووپی ڤانتێرا',
+
+  aboutEyebrow: 'دەربارەی گرووپی ڤانتێرا',
+  aboutHeadline: 'دیدگایەک لەسەرووی بازرگانییەوە.',
+  aboutParagraph1:
+    'گرووپی ڤانتێرا (VANTERA Group) کۆمپانیایەکی خەیاڵی و نموونەییە کە بۆ پیشاندانی مۆدێلێکی گرووپی بازرگانی فرەبوار لە هەولێر، هەرێمی کوردستان، عێراق دروستکراوە. پێکهاتەکەمان سێ کەرتی سەرەکی کۆدەکاتەوە: خانووبەرە، بیناسازی و بازرگانی گشتی.',
+  aboutParagraph2:
+    'هەموو هەنگاوێکمان لەسەر بنەمای پابەندبوون بە کوالێتی بەرز، پەیوەندی درێژخایەنی متمانەپێکراو و گەشەپێدانی بەرپرسیارانە بنیات نراوە بۆ دروستکردنی بەهایەکی بەردەوام.',
+  aboutLocationBadge: 'بارەگای سەرەکی لە هەولێر، هەرێمی کوردستان، عێراق',
+  aboutImageCaption: 'دیمەنی شار — تێڕوانینی نموونەیی کۆمپانیا',
+
+  divisionsEyebrow: 'کەرتە بازرگانییەکانمان',
+  divisionsHeadline: 'سێ کۆڵەکەی یەکگرتووی کارسازی.',
+  divisionsSubtitle: 'هەر بەشێک هەڵبژێرە بۆ بینینی وردەکاری خزمەتگوزاری و بوارەکانی کارکردن.',
+  divisionExploreLabel: 'بینینی وردەکاری بەش',
+  divisionFocusTitle: 'تەوەرە سەرەکییەکانی کارکردن',
+  divisionInquireCta: 'پرسیار دەربارەی ئەم بەشە بکە',
+  divisions: [
+    {
+      id: 'real_estate',
+      numberLabel: '٠١',
+      title: 'ڤانتێرا بۆ خانووبەرە',
+      subtitle: 'گەشەپێدانی موڵک و نیشتەجێبوونی شاهانە',
+      description:
+        'گەشەپێدانی موڵک، پڕۆژەکانی نیشتەجێبوونی شاهانە و دەرفەتە پێشکەوتووەکانی خانووبەرە بە دیزاینی تەلارسازی هاوچەرخ.',
+      focusAreas: [
+        'کۆمەڵگای ڤێلا و پڕۆژەی نیشتەجێبوونی پلاندانراو',
+        'پێگەیاندنی پڕۆژە بازرگانی و فرەبوارەکان',
+        'وردبینی تەلارسازی و بەڕێوەبردنی بەهای موڵک',
+      ],
+      serviceInterest: 'real_estate',
+      imagePath: 'assets/images/img_luxury_villa.jpg',
+    },
+    {
+      id: 'construction',
+      numberLabel: '٠٢',
+      title: 'ڤانتێرا بۆ بیناسازی',
+      subtitle: 'ئەندازیاری و جێبەجێکردن',
+      description:
+        'بەڕێوەبردنی بیناسازی، ئەندازیاری پێکهاتەیی و جێبەجێکردنی پڕۆژەی مۆدێرن بە سەرپەرشتی تەکنیکی ورد.',
+      focusAreas: [
+        'ئەندازیاری پێکهاتەیی و سەرپەرشتی مەیدانی',
+        'دڵنیایی کوالێتی، سەلامەتی و پابەندبوون بە کات',
+        'دروستکردنی باڵەخانەی بازرگانی و نیشتەجێبوونی هاوچەرخ',
+      ],
+      serviceInterest: 'construction',
+      imagePath: 'assets/images/img_construction_project.jpg',
+    },
+    {
+      id: 'general_trading',
+      numberLabel: '٠٣',
+      title: 'ڤانتێرا بۆ بازرگانی گشتی',
+      subtitle: 'دابینکردنی جیهانی و لۆجستیک',
+      description:
+        'دابینکردنی نێودەوڵەتی، بازرگانی ڕێکخراو و هەماهەنگی لۆجستیکی بۆ بەستنەوەی دابینکەرە باوەڕپێکراوەکان بە بازاڕی ناوچەکەوە.',
+      focusAreas: [
+        'کڕینی نێودەوڵەتی و هەڵسەنگاندنی دابینکەران',
+        'هەماهەنگی گواستنەوەی دەریایی، وشکانی و گومرگی',
+        'دابینکردنی کەرەستەی پیشەسازی و بازرگانی',
+      ],
+      serviceInterest: 'general_trading',
+      imagePath: 'assets/images/img_shipping_port.jpg',
+    },
+  ],
+
+  projectsEyebrow: 'پڕۆژە هەڵبژێردراوەکان',
+  projectsHeadline: 'چەمکە تەلارسازی و گەشەپێدانەکان.',
+  projectsSubtitle:
+    'گەلەرییەکی نموونەیی بۆ پیشاندانی ئاستی دیزاین لە بواری نیشتەجێبوون، بیناسازی و دیزاینی ناوخۆییدا.',
+  projectsDisclaimerBanner:
+    'تێبینی نمایشی نموونەیی: ئەم پڕۆژانە تەنها نموونەی دیزاین و چەمکی خەیاڵین و پڕۆژەی تەواوکراوی ڕاستەقینەی کڕیاران نین.',
+  projectsInspectLabel: 'بینینی چەمک',
+  projectConceptBadge: 'نموونەی نمایشی خەیاڵی',
+  projectNotesLabel: 'ئاراستەی دیزاین',
+  projects: [
+    {
+      id: 'villa_collection',
+      code: 'نموونەی ٠١',
+      title: 'کۆمەڵەی ڤێلای شاهانە',
+      divisionLabel: 'ڤانتێرا بۆ خانووبەرە',
+      conceptTag: 'پڕۆژەی نموونەیی',
+      summary:
+        'نیشتەجێگەی تایبەت بە بەکارهێنانی بەردی سروشتی، سەقفی دار و حەوزی ئاوی هێمن لە حەوشەی سەرەکیدا.',
+      architecturalNotes: 'نموونەی پلاندانانی فەزا، سێبەری سروشتی و هەڵبژاردنی کەرەستەی بەرزە.',
+      imagePath: 'assets/images/img_luxury_villa.jpg',
+    },
+    {
+      id: 'residential_development',
+      code: 'نموونەی ٠٢',
+      title: 'کۆمەڵگای نیشتەجێبوون',
+      divisionLabel: 'ڤانتێرا بۆ خانووبەرە',
+      conceptTag: 'پڕۆژەی نموونەیی',
+      summary:
+        'باڵەخانەی نیشتەجێبوونی مۆدێرن بە دەوری باخچەی پیادەڕەو و باڵکۆنی فراواندا ڕێکخراون.',
+      architecturalNotes: 'نموونەی هاوسەنگی نێوان ژیانی کۆمەڵایەتی باخچەکان و ئارامی ماڵەکانە.',
+      imagePath: 'assets/images/img_residential_development.jpg',
+    },
+    {
+      id: 'modern_construction',
+      code: 'نموونەی ٠٣',
+      title: 'پڕۆژەی بیناسازی مۆدێرن',
+      divisionLabel: 'ڤانتێرا بۆ بیناسازی',
+      conceptTag: 'پڕۆژەی نموونەیی',
+      summary:
+        'پێکهاتەیەکی بازرگانی کۆنکرێتی فرەنهۆم بە بەڕێوەبردنی وردی کرێن و قۆناغەکانی ئەندازیاری.',
+      architecturalNotes: 'نموونەی سەرپەرشتی مەیدانی، وردبینی ئەندازیاری و هەماهەنگی تیمی کارە.',
+      imagePath: 'assets/images/img_construction_project.jpg',
+    },
+    {
+      id: 'executive_interior',
+      code: 'نموونەی ٠٤',
+      title: 'دیزاینی ناوخۆیی پێشکەوتوو',
+      divisionLabel: 'ڤانتێرا بۆ خانووبەرە',
+      conceptTag: 'پڕۆژەی نموونەیی',
+      summary: 'هۆڵی پێشوازی و ژیان بە بەردی تراڤێرتین، تەختەی دار و ڕووناکی تەلارسازی نەرم.',
+      architecturalNotes: 'نموونەی یەکخستنی ڕەنگ و کەرەستەی سروشتی لە ناوخۆی باڵەخانەکاندا.',
+      imagePath: 'assets/images/img_luxury_interior.jpg',
+    },
+  ],
+
+  whyEyebrow: 'بۆچی ڤانتێرا هەڵبژێردرێت',
+  whyHeadline: 'جێبەجێکردنی پڕەنسیپدار لە هەموو بوارەکاندا.',
+  whySubtitle:
+    'چوارچێوەی کارکردنمان توانای پسپۆڕانە لەسەر ڕوونی، بەرپرسیارێتی و بەهای درێژخایەن یەکدەخات.',
+  whyPillars: [
+    {
+      indexLabel: '٠١',
+      title: 'باڵادەستی پیشەیی',
+      description: 'ڕێبازی ڕێکخراو، شەفافیەت و پابەندبوون بە ستانداردی بەرز لە دیزاین و ئەندازیاریدا.',
+    },
+    {
+      indexLabel: '٠٢',
+      title: 'کەرتە بازرگانییە یەکگرتووەکان',
+      description:
+        'هەماهەنگی تەواو لە نێوان بینینی خانووبەرە، جێبەجێکردنی بیناسازی و دابینکردنی نێودەوڵەتی.',
+    },
+    {
+      indexLabel: '٠٣',
+      title: 'هاوبەشی ستراتیژی',
+      description: 'دروستکردنی هاوپەیمانی بەهێز لەگەڵ دابینکەرە جیهانییەکان و ڕاوێژکارە ئەندازیارییەکان.',
+    },
+    {
+      indexLabel: '٠٤',
+      title: 'دیدگای درێژخایەن',
+      description: 'پێشخستنی ژێرخانی بەردەوام، گەشەپێدانی بەرپرسیارانە و پەیوەندی بازرگانی پایەدار.',
+    },
+  ],
+
+  expertiseEyebrow: 'پسپۆڕی و تیم',
+  expertiseHeadline: 'سەرکردایەتی فرەپسپۆڕ، بنیاتنراو لەسەر جێبەجێکردن.',
+  expertiseBody:
+    'لە مێزی پێداچوونەوەی نەخشەی ئەندازیارییەوە تا ژووری ستراتیژی بەڕێوەبردن، مۆدێلە نموونەییەکەمان گرنگی بە هەماهەنگی وردی نێوان تیمەکان دەدات لە هەموو قۆناغێکدا.',
+  expertiseCaptionEngineering: 'پێداچوونەوەی ئەندازیاری و تەلارسازی',
+  expertiseCaptionOffice: 'ژینگەی کاری بەڕێوەبردن',
+
+  partnershipsEyebrow: 'هاوپەیمانی ستراتیژی',
+  partnershipsHeadline: 'پێکەوە بەهێزترین. بونیادنانی هاوبەشی بەردەوام.',
+  partnershipsBody:
+    'باوەڕمان وایە کاری گەورە لەسەر متمانەی دوولایەنە و ستانداردی هاوبەش دروست دەبێت. گرووپی ڤانتێرا لەگەڵ هاوبەشانی ناوخۆیی و نێودەوڵەتی کار دەکات بۆ کردنەوەی دەرفەتی نوێ.',
+  partnershipsCta: 'گفتوگۆ دەربارەی هاوبەشی',
+
+  contactEyebrow: 'پەیوەندیمان پێوە بکە',
+  contactHeadline: 'پەیوەندی لەگەڵ تیمەکەمان ببەستە.',
+  contactSubtitle:
+    'پرسیارەکانت دەربارەی خانووبەرە، بیناسازی، بازرگانی گشتی یان هاوبەشی ستراتیژی بنێرە.',
+  contactLocationTitle: 'ئۆفیسی هەرێمی',
+  contactLocationValue: 'هەولێر، هەرێمی کوردستان، عێراق',
+  contactEmailTitle: 'ئیمەیڵی کۆمپانیا (نموونەیی)',
+  contactEmailValue: 'info@vanteragroup.example',
+  contactEmailDemoNote: 'ئیمەیڵێکی نموونەیی خەیاڵییە — ڕاستەقینە نییە.',
+  contactDemoNotice:
+    'فۆڕمی تاقیکردنەوەی نموونەیی: پشکنین و ناردن تەنها لە وێبگەڕەکەتدا کار دەکەن و هیچ زانیارییەک بۆ سێرڤەری دەرەکی نانێردرێت.',
+  fieldFullName: 'ناوی تەواو',
+  fieldEmail: 'ناونیشانی ئیمەیڵ',
+  fieldPhone: 'ژمارەی مۆبایل',
+  fieldCompany: 'ناوی کۆمپانیا',
+  fieldCompanyOptional: 'ئارەزوومەندانە',
+  fieldServiceInterest: 'خزمەتگوزاری داواکراو',
+  fieldMessage: 'نامەکەت',
+  submitInquiryCta: 'ناردنی داواکاری نموونەیی',
+  errorFullNameRequired: 'تکایە ناوی تەواوت بنووسە (لانیکەم ٢ پیت).',
+  errorEmailRequired: 'تکایە ناونیشانی ئیمەیڵ بنووسە.',
+  errorEmailInvalid: 'تکایە ئیمەیڵێکی دروست بنووسە.',
+  errorPhoneRequired: 'تکایە ژمارەی مۆبایل بنووسە.',
+  errorPhoneInvalid: 'تکایە ژمارەیەکی دروست بنووسە (لانیکەم ٧ ژمارە).',
+  errorMessageRequired: 'تکایە نامەکەت بنووسە (لانیکەم ١٠ پیت).',
+  successTitle: 'داواکاری نموونەیی بە شێوەی ناوخۆیی تۆمارکرا',
+  successDemoExplanation:
+    'ئەمە دڵنیاکردنەوەیەکی نمایشییە. چونکە گرووپی ڤانتێرا نموونەیەکی خەیاڵییە و سێرڤەری ڕاستەقینەی نییە، هیچ ئیمەیڵێک نەنێردراوە.',
+  successSummaryLabel: 'پوختەی داواکاری',
+  successResetCta: 'ناردنی داواکارییەکی تر',
+  serviceOptions: {
+    real_estate: 'ڤانتێرا بۆ خانووبەرە',
+    construction: 'ڤانتێرا بۆ بیناسازی',
+    general_trading: 'ڤانتێرا بۆ بازرگانی گشتی',
+    partnership: 'هاوبەشی ستراتیژی',
+    general_inquiry: 'پرسیاری گشتی',
+  },
+
+  footerTagline: 'خانووبەرە • بیناسازی • بازرگانی گشتی',
+  footerNavHeading: 'ڕێنیشاندەر',
+  footerDivisionsHeading: 'کەرتە بازرگانییەکان',
+  footerContactHeading: 'ناونیشان و پەیوەندی نموونەیی',
+  footerCopyright: '© ٢٠٢٦ گرووپی ڤانتێرا (VANTERA Group). هەموو مافەکان پارێزراون.',
+  footerDemoDisclosure:
+    'ڕوونکردنەوەی نموونەی پۆرتفۆلیۆ: گرووپی ڤانتێرا چەمکێکی خەیاڵییە کە لەلایەن BASLUNE ـەوە دروستکراوە بۆ پیشاندانی توانای دیزاین و پەرەپێدانی فرەزمانە. پڕۆژەکان و زانیاری پەیوەندییەکان نموونەین و ڕاستەقینە نین.',
+};
+
+const arabicCopy: VanteraCopy = {
+  pageTitle: 'مجموعة فانتيرا (VANTERA Group) — العقارات والإنشاءات والتجارة العامة',
+  brandWordmark: 'VANTERA',
+  brandSubword: 'GROUP',
+  navHome: 'الرئيسية',
+  navAbout: 'من نحن',
+  navServices: 'خدماتنا',
+  navProjects: 'المشاريع',
+  navContact: 'اتصل بنا',
+  contactUsCta: 'تواصل معنا',
+  closeMenuLabel: 'إغلاق قائمة التنقل',
+  openMenuLabel: 'فتح قائمة التنقل',
+  languageSelectorLabel: 'اللغة',
+
+  heroEyebrow: 'أربيل • إقليم كوردستان، العراق',
+  heroHeadline: 'نبني الفرص. نصنع الغد.',
+  heroSubtitle:
+    'تجمع مجموعة فانتيرا بين العقارات والإنشاءات والتجارة الدولية لخلق قيمة أعمال مستدامة.',
+  heroPrimaryCta: 'استكشف أعمالنا',
+  heroSecondaryCta: 'تواصل مع فريقنا',
+  heroDemoChip: 'عرض تعريفي تصوّري',
+  heroImageAlt: 'مدخل المقر الرئيسي لمجموعة فانتيرا',
+
+  aboutEyebrow: 'عن مجموعة فانتيرا',
+  aboutHeadline: 'رؤية تتجاوز حدود الأعمال.',
+  aboutParagraph1:
+    'مجموعة فانتيرا (VANTERA Group) هي شركة افتراضية تجريبية صُممت لتمثيل مجموعة أعمال دولية متنوعة الأنشطة تتخذ من أربيل في إقليم كوردستان العراق مقراً لها، وتوحّد قطاعات العقارات والإنشاءات والتجارة العامة تحت إدارة مؤسسية متكاملة.',
+  aboutParagraph2:
+    'نستند في كل مبادرة إلى التزام راسخ بالجودة المعمارية والتنفيذية، وبناء علاقات طويلة الأمد، وتحقيق نمو مسؤول يخلق قيمة حقيقية ومستدامة للشركاء والمجتمع.',
+  aboutLocationBadge: 'المقر الرئيسي في أربيل، إقليم كوردستان، العراق',
+  aboutImageCaption: 'منظور عمراني — نظرة عامة تصوّرية للشركة',
+
+  divisionsEyebrow: 'قطاعات أعمالنا',
+  divisionsHeadline: 'ثلاث ركائز متكاملة للأعمال.',
+  divisionsSubtitle: 'اختر أي قطاع لاستعراض مجالات التركيز والقدرات التشغيلية.',
+  divisionExploreLabel: 'استعراض نطاق القطاع',
+  divisionFocusTitle: 'مجالات التركيز الأساسية',
+  divisionInquireCta: 'استفسر عن هذا القطاع',
+  divisions: [
+    {
+      id: 'real_estate',
+      numberLabel: '٠١',
+      title: 'فانتيرا للعقارات',
+      subtitle: 'التطوير العقاري والسكن الفاخر',
+      description:
+        'تطوير العقارات والمشاريع السكنية الفاخرة والفرص الاستثمارية العقارية المصممة برؤية معمارية راقية.',
+      focusAreas: [
+        'تطوير مجمعات الفلل الفاخرة والأحياء السكنية المتكاملة',
+        'المشاريع التجارية ومتعددة الاستخدامات',
+        'العناية بالتفاصيل المعمارية وإدارة الأصول',
+      ],
+      serviceInterest: 'real_estate',
+      imagePath: 'assets/images/img_luxury_villa.jpg',
+    },
+    {
+      id: 'construction',
+      numberLabel: '٠٢',
+      title: 'فانتيرا للإنشاءات',
+      subtitle: 'الهندسة وإدارة التنفيذ',
+      description: 'إدارة المشاريع الإنشائية والهندسة الإنشائية وتنفيذ المشاريع الحديثة بإشراف فني دقيق.',
+      focusAreas: [
+        'الهندسة الإنشائية والإشراف الميداني الشامل',
+        'ضمان الجودة والالتزام بمعايير السلامة والجداول الزمنية',
+        'تنفيذ المباني التجارية والسكنية الحديثة',
+      ],
+      serviceInterest: 'construction',
+      imagePath: 'assets/images/img_construction_project.jpg',
+    },
+    {
+      id: 'general_trading',
+      numberLabel: '٠٣',
+      title: 'فانتيرا للتجارة العامة',
+      subtitle: 'التوريد العالمي واللوجستيات',
+      description:
+        'التوريد الدولي والتجارة المعتمدة وتنسيق سلاسل الإمداد واللوجستيات لربط الموردين العالميين باحتياجات السوق.',
+      focusAreas: [
+        'المشتريات الدولية وتأهيل الموردين المعتمدين',
+        'تنسيق الشحن البحري والبري والتخليص الجمركي',
+        'توريد المواد الصناعية والتجارية الكبرى',
+      ],
+      serviceInterest: 'general_trading',
+      imagePath: 'assets/images/img_shipping_port.jpg',
+    },
+  ],
+
+  projectsEyebrow: 'مشاريع مختارة',
+  projectsHeadline: 'مفاهيم معمارية وتطويرية.',
+  projectsSubtitle:
+    'معرض تصوّري يستعرض اللغة التصميمية عبر المشاريع السكنية والإنشائية والتصميم الداخلي.',
+  projectsDisclaimerBanner:
+    'إشعار عرض تصوّري: المشاريع المعروضة أدناه هي مفاهيم تصميمية توضيحية وليست مشاريع عملاء منفّذة فعلياً.',
+  projectsInspectLabel: 'معاينة المفهوم',
+  projectConceptBadge: 'عرض تصوّري تجريبي',
+  projectNotesLabel: 'التوجه المعماري',
+  projects: [
+    {
+      id: 'villa_collection',
+      code: 'مفهوم ٠١',
+      title: 'مجموعة الفلل الفاخرة',
+      divisionLabel: 'فانتيرا للعقارات',
+      conceptTag: 'مشروع تصوّري',
+      summary: 'مساكن خاصة تجمع بين الحجر الجيري الطبيعي والأسقف الخشبية الممتدة والمسطحات المائية الهادئة.',
+      architecturalNotes: 'يعرض تخطيط المساحات السكنية والتظليل الطبيعي وجودة المواد المعمارية.',
+      imagePath: 'assets/images/img_luxury_villa.jpg',
+    },
+    {
+      id: 'residential_development',
+      code: 'مفهوم ٠٢',
+      title: 'مشروع تطوير سكني',
+      divisionLabel: 'فانتيرا للعقارات',
+      conceptTag: 'مشروع تصوّري',
+      summary: 'مبانٍ سكنية متوسطة الارتفاع تتوسطها ممرات خضراء للمشاة مع شرفات واسعة وواجهات حجرية دافئة.',
+      architecturalNotes: 'يعكس التوازن بين الحياة المجتمعية في الساحات والخصوصية الهادئة للوحدات.',
+      imagePath: 'assets/images/img_residential_development.jpg',
+    },
+    {
+      id: 'modern_construction',
+      code: 'مفهوم ٠٣',
+      title: 'مشروع إنشاء حديث',
+      divisionLabel: 'فانتيرا للإنشاءات',
+      conceptTag: 'مشروع تصوّري',
+      summary: 'هيكل تجاري خرساني متعدد الطوابق يُدار بمنظومة رافعات متكاملة وتنسيق هندسي مرحلي.',
+      architecturalNotes: 'يوضح دقة التنفيذ الإنشائي وإدارة الموقع والعمل الهندسي الميداني.',
+      imagePath: 'assets/images/img_construction_project.jpg',
+    },
+    {
+      id: 'executive_interior',
+      code: 'مفهوم ٠٤',
+      title: 'تصميم داخلي تنفيذي',
+      divisionLabel: 'فانتيرا للعقارات',
+      conceptTag: 'مشروع تصوّري',
+      summary: 'مساحات معيشة واستقبال مزدوجة الارتفاع بحجر الترافرتين والألواح الخشبية والإضاءة المعمارية الهادئة.',
+      architecturalNotes: 'يعرض تناغم الخامات الطبيعية بين الحجر والخشب والأثاث المعاصر.',
+      imagePath: 'assets/images/img_luxury_interior.jpg',
+    },
+  ],
+
+  whyEyebrow: 'لماذا فانتيرا',
+  whyHeadline: 'تنفيذ منضبط في كل تخصص.',
+  whySubtitle: 'يوحّد إطارنا المؤسسي القدرات المتخصصة حول الوضوح والمساءلة والقيمة المستدامة.',
+  whyPillars: [
+    {
+      indexLabel: '٠١',
+      title: 'التميز المهني',
+      description: 'منهجيات عمل دقيقة وشفافية كاملة والتزام بأعلى المعايير في التصميم والهندسة والتجارة.',
+    },
+    {
+      indexLabel: '٠٢',
+      title: 'قطاعات أعمال متكاملة',
+      description: 'تنسيق سلس يربط بين الرؤية العقارية والتنفيذ الإنشائي والتوريد الدولي للمواد.',
+    },
+    {
+      indexLabel: '٠٣',
+      title: 'شراكات استراتيجية',
+      description: 'بناء تحالفات موثوقة مع المصنّعين الدوليين والمستشارين الهندسيين والشركاء الإقليميين.',
+    },
+    {
+      indexLabel: '٠٤',
+      title: 'رؤية طويلة الأمد',
+      description: 'التركيز على البنية التحتية المتينة والنمو العمراني المسؤول والعلاقات التجارية المستدامة.',
+    },
+  ],
+
+  expertiseEyebrow: 'الخبرات والفريق',
+  expertiseHeadline: 'قيادة متعددة التخصصات ترتكز على التنفيذ.',
+  expertiseBody:
+    'من طاولات مراجعة المخططات الهندسية إلى قاعات التخطيط التنفيذي، يعتمد نموذجنا المؤسسي على التعاون الوثيق بين التخصصات والعناية بأدق التفاصيل في كل مرحلة.',
+  expertiseCaptionEngineering: 'المراجعة الهندسية والمعمارية',
+  expertiseCaptionOffice: 'بيئة العمل التنفيذية',
+
+  partnershipsEyebrow: 'تحالفات استراتيجية',
+  partnershipsHeadline: 'معاً أقوى. بناء شراكات مستدامة.',
+  partnershipsBody:
+    'نؤمن بأن المؤسسات الراسخة تُبنى على الثقة المتبادلة والمعايير المشتركة. تتعاون مجموعة فانتيرا مع شركاء التطوير والهندسة والتجارة الدولية لفتح آفاق أعمال واعدة.',
+  partnershipsCta: 'ناقش فرصة شراكة',
+
+  contactEyebrow: 'اتصل بنا',
+  contactHeadline: 'تواصل مع فريقنا.',
+  contactSubtitle:
+    'شاركنا استفسارك حول العقارات أو الإنشاءات أو التجارة العامة أو الشراكات الاستراتيجية.',
+  contactLocationTitle: 'المكتب الإقليمي',
+  contactLocationValue: 'أربيل، إقليم كوردستان، العراق',
+  contactEmailTitle: 'البريد المؤسسي (تجريبي)',
+  contactEmailValue: 'info@vanteragroup.example',
+  contactEmailDemoNote: 'عنوان بريد إلكتروني افتراضي للعرض فقط — غير مراقب.',
+  contactDemoNotice:
+    'نموذج تفاعلي تجريبي: يتم التحقق من الحقول وتسجيل الإرسال محلياً في المتصفح فقط دون إرسال أي بيانات إلى خادم خارجي.',
+  fieldFullName: 'الاسم الكامل',
+  fieldEmail: 'البريد الإلكتروني',
+  fieldPhone: 'رقم الهاتف',
+  fieldCompany: 'اسم الشركة',
+  fieldCompanyOptional: 'اختياري',
+  fieldServiceInterest: 'القطاع المطلوب',
+  fieldMessage: 'الرسالة',
+  submitInquiryCta: 'إرسال استفسار تجريبي',
+  errorFullNameRequired: 'يرجى إدخال الاسم الكامل (حرفان على الأقل).',
+  errorEmailRequired: 'يرجى إدخال البريد الإلكتروني.',
+  errorEmailInvalid: 'يرجى إدخال بريد إلكتروني صحيح.',
+  errorPhoneRequired: 'يرجى إدخال رقم الهاتف.',
+  errorPhoneInvalid: 'يرجى إدخال رقم هاتف صحيح (7 أرقام على الأقل).',
+  errorMessageRequired: 'يرجى كتابة رسالتك (10 أحرف على الأقل).',
+  successTitle: 'تم تسجيل الاستفسار التجريبي محلياً',
+  successDemoExplanation:
+    'هذا تأكيد محاكاة للعرض التجريبي فقط. نظراً لأن مجموعة فانتيرا مشروع عرض افتراضي بدون خادم خلفي، لم يتم إرسال أي بريد إلكتروني.',
+  successSummaryLabel: 'ملخص الاستفسار',
+  successResetCta: 'إرسال استفسار آخر',
+  serviceOptions: {
+    real_estate: 'فانتيرا للعقارات',
+    construction: 'فانتيرا للإنشاءات',
+    general_trading: 'فانتيرا للتجارة العامة',
+    partnership: 'الشراكات الاستراتيجية',
+    general_inquiry: 'استفسار عام',
+  },
+
+  footerTagline: 'العقارات • الإنشاءات • التجارة العامة',
+  footerNavHeading: 'التنقل',
+  footerDivisionsHeading: 'قطاعات الأعمال',
+  footerContactHeading: 'الموقع والتواصل التجريبي',
+  footerCopyright: '© ٢٠٢٦ مجموعة فانتيرا (VANTERA Group). جميع الحقوق محفوظة.',
+  footerDemoDisclosure:
+    'إفصاح العرض الافتراضي: مجموعة فانتيرا هي مفهوم تعريفي افتراضي أعدّته BASLUNE لاستعراض قدرات التصميم والهندسة الرقمية متعددة اللغات. المشاريع وبيانات التواصل المعروضة هي نماذج توضيحية وليست كيانات حقيقية.',
+};
+
+export function getVanteraCopy(language: AppLanguage): VanteraCopy {
+  switch (language) {
+    case 'ku':
+      return kurdishCopy;
+    case 'ar':
+      return arabicCopy;
+    case 'en':
+    default:
+      return englishCopy;
+  }
+}
