@@ -1,6 +1,11 @@
 package com.example
 
 import android.content.Context
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ApplicationProvider
 import com.example.model.AppLanguage
 import com.example.model.ServiceInterest
@@ -10,6 +15,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -19,11 +25,33 @@ import org.robolectric.annotation.Config
 @Config(sdk = [36])
 class ExampleRobolectricTest {
 
+    @get:Rule
+    val composeRule = createAndroidComposeRule<MainActivity>()
+
     @Test
     fun `read app name string from context`() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val appName = context.getString(R.string.app_name)
         assertEquals("VANTERA", appName)
+    }
+
+    @Test
+    fun `main activity renders vantera hero and wordmark without crashing`() {
+        composeRule.onNodeWithTag("vantera_wordmark").assertIsDisplayed()
+        composeRule.onNodeWithTag("section_hero").assertIsDisplayed()
+        composeRule.onNodeWithText("Building Opportunities. Creating Tomorrow.").assertIsDisplayed()
+        composeRule.onNodeWithTag("hero_explore_button").assertExists()
+    }
+
+    @Test
+    fun `language switching in UI updates to Kurdish RTL and Arabic RTL`() {
+        composeRule.onNodeWithTag("language_selector_button").performClick()
+        composeRule.onNodeWithTag("lang_option_ku").performClick()
+        composeRule.onNodeWithText("دەرفەتەکان بونیاد دەنێین. سبەینێ دەخولقێنین.").assertIsDisplayed()
+
+        composeRule.onNodeWithTag("language_selector_button").performClick()
+        composeRule.onNodeWithTag("lang_option_ar").performClick()
+        composeRule.onNodeWithText("نبني الفرص. نصنع الغد.").assertIsDisplayed()
     }
 
     @Test
